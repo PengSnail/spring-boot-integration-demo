@@ -11,13 +11,17 @@
 
     <modules>
         <module>spring-boot-integration-elasticsearch</module>
+        <module>spring-boot-integration-mybatis-plus</module>
     </modules>
 
     <!--  统一版本  -->
     <properties>
         <spring.boot.version>2.3.4.RELEASE</spring.boot.version>
-        <mybatis.version>2.1.3</mybatis.version>
+        <spring.boot.test.version>2.3.4.RELEASE</spring.boot.test.version>
         <lombok.version>1.18.12</lombok.version>
+        <druid.version>1.2.1</druid.version>
+        <mybatis.plus.version>3.4.0</mybatis.plus.version>
+        <mysql.version>8.0.22</mysql.version>
     </properties>
 
     <!--  公共依赖  -->
@@ -32,6 +36,14 @@
                 <scope>import</scope>
             </dependency>
 
+            <!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-test -->
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-test</artifactId>
+                <version>${spring.boot.test.version}</version>
+                <scope>test</scope>
+            </dependency>
+
             <!-- https://mvnrepository.com/artifact/org.projectlombok/lombok -->
             <dependency>
                 <groupId>org.projectlombok</groupId>
@@ -39,6 +51,15 @@
                 <version>${lombok.version}</version>
                 <scope>provided</scope>
             </dependency>
+
+            <!-- https://mvnrepository.com/artifact/mysql/mysql-connector-java -->
+            <!-- 解决 java.lang.ClassNotFoundException: com.mysql.cj.jdbc.Driver 问题 -->
+            <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
