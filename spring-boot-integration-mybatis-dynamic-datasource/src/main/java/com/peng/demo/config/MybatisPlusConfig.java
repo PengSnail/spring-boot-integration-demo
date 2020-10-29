@@ -46,9 +46,8 @@ public class MybatisPlusConfig {
     public DataSource multipleDataSource(
             @Qualifier("primary") DataSource primary,
             @Qualifier("db2") DataSource db2) {
-        //获取当前线程的数据源类型
         DynamicDataSource dynamicDataSource = new DynamicDataSource();
-        //组拼目标数据源的映射
+        //组拼所有数据源配置信息的映射
         HashMap<Object, Object> targetDataSources = new HashMap<>(8);
         targetDataSources.put(DataSourceTypeEnum.PRIMARY.getDb(), primary);
         targetDataSources.put(DataSourceTypeEnum.DB2.getDb(), db2);
@@ -63,6 +62,7 @@ public class MybatisPlusConfig {
     @Bean("sqlSessionFactory")
     public SqlSessionFactory sqlSessionFactory() throws Exception {
         SqlSessionFactoryBean factoryBean = new SqlSessionFactoryBean();
+        //注入所有的数据源的配置信息
         factoryBean.setDataSource(multipleDataSource(primary(), db2()));
         return factoryBean.getObject();
     }

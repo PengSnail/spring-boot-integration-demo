@@ -25,8 +25,11 @@ public class Demo extends SpringBootIntegrationMybatisDynamicDatasourceTest {
     @Test
     public void test() {
         Person person = personDao.get(1L);
-        log.info("查询结果：{}", person);
+        Person person2 = personDao.get(2L);
+        log.info("查询结果：{}, {}", person, person2);
         Subject subject = subjectDao.get(1L);
         log.info("查询结果：{}", subject);
+        Person person3 = personDao.get(3L);
+        log.info("查询结果：{}", person3);
     }
 }

@@ -11,7 +11,7 @@ public enum DataSourceTypeEnum {
     DB2("DB2"),
     ;
 
-    private String db;
+    private final String db;
 
     DataSourceTypeEnum(String db) {
         this.db = db;

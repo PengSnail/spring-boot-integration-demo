@@ -1,6 +1,7 @@
 package com.peng.demo.dataSource;
 
 /**
+ * 存储当前线程所使用的数据源类型
  * @author PengG
  * @date 2020/10/29 9:39
  */
