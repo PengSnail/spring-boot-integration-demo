@@ -1,3 +1,4 @@
+-- 数据库 test
 DROP TABLE IF EXISTS `person`;
 CREATE TABLE `person` (
 	`id` INT(10) UNSIGNED NOT NULL AUTO_INCREMENT,
@@ -7,3 +8,12 @@ CREATE TABLE `person` (
 	PRIMARY KEY (`id`) USING BTREE
 ) COLLATE='utf8_general_ci' ENGINE=InnoDB;
 
+-- 数据库 test_2
+DROP TABLE IF EXISTS `subject`;
+CREATE TABLE `subject` (
+	`id` BIGINT(20) NOT NULL AUTO_INCREMENT COMMENT '主键ID',
+	`name` VARCHAR(50) NULL DEFAULT NULL COMMENT '学科名' COLLATE 'utf8_general_ci',
+	`create_time` DATETIME NULL DEFAULT NULL COMMENT '创建时间',
+	PRIMARY KEY (`id`) USING BTREE
+)
+COMMENT='学科表' COLLATE='utf8_general_ci' ENGINE=InnoDB;
