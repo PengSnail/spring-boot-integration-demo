@@ -4,6 +4,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.aspectj.lang.annotation.Pointcut;
+import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 /**
@@ -12,19 +13,20 @@ import org.springframework.stereotype.Component;
  */
 @Slf4j
 @Aspect
+@Order(1) //保证数据源切换的AOP早于事务的AOP
 @Component
 public class DatasourceSelectorAspect {
 
     /**
      * 定义 primary 数据源切入点
      */
-    @Pointcut("execution(* com.peng.demo.db.primary..*.*(..))")
+    @Pointcut("execution(* com.peng.demo.service.primary..*.*(..))")
     private void primaryAspect(){}
 
     /**
      * 定义 db2 数据源切入点
      */
-    @Pointcut("execution(* com.peng.demo.db.db2..*.*(..))")
+    @Pointcut("execution(* com.peng.demo.service.db2..*.*(..))")
     private void db2Aspect(){}
 
     /**

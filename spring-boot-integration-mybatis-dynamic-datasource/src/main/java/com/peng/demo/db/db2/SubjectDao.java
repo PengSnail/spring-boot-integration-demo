@@ -1,6 +1,7 @@
 package com.peng.demo.db.db2;
 
 import com.peng.demo.bean.Subject;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
@@ -18,4 +19,7 @@ public interface SubjectDao {
      */
     @Select("SELECT id, name, create_time FROM subject WHERE id = #{id}")
     Subject get(Long id);
+
+    @Insert("INSERT INTO subject (name, create_time) VALUES (#{name}, #{createTime})")
+    int save(Subject subject);
 }

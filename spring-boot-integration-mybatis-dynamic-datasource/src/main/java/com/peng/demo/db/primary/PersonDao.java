@@ -1,6 +1,7 @@
 package com.peng.demo.db.primary;
 
 import com.peng.demo.bean.Person;
+import org.apache.ibatis.annotations.Insert;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
@@ -18,4 +19,7 @@ public interface PersonDao {
      */
     @Select("SELECT id, name, age, birthday FROM person WHERE id = #{id}")
     Person get(Long id);
+
+    @Insert("INSERT INTO person (name, age, birthday) VALUES (#{name}, #{age}, #{birthday})")
+    int save(Person person);
 }
