@@ -13,6 +13,7 @@
         <module>spring-boot-integration-elasticsearch</module>
         <module>spring-boot-integration-mybatis-plus</module>
         <module>spring-boot-integration-mybatis-dynamic-datasource</module>
+        <module>spring-boot-integration-redis</module>
     </modules>
 
     <!--  统一版本  -->
@@ -25,6 +26,7 @@
         <mybatis.plus.version>3.4.0</mybatis.plus.version>
         <mysql.version>8.0.22</mysql.version>
         <springboot.aop.version>2.3.4.RELEASE</springboot.aop.version>
+        <springboot.redis.version>2.3.5.RELEASE</springboot.redis.version>
     </properties>
 
     <!--  公共依赖  -->
