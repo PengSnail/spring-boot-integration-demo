@@ -5,6 +5,7 @@ import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.peng.demo.bean.Person;
 import com.peng.demo.bean.Subject;
 import com.peng.demo.dao.PersonDao;
+import com.peng.demo.dao.SubjectDao;
 import com.peng.demo.service.PersonService;
 import com.peng.demo.service.SubjectService;
 import com.peng.demo.service.TestService;
@@ -18,34 +19,31 @@ import org.springframework.transaction.annotation.Transactional;
  * @date 2020/10/28 9:26
  */
 @Slf4j
-@DS("master")
 @Service
-public class PersonServiceImpl extends ServiceImpl<PersonDao, Person> implements PersonService {
+public class TestServiceImpl implements TestService {
+
 
     @Autowired
-    private PersonDao personDao;
-    @Autowired
-    private SubjectService subjectService;
-    @Autowired
-    private TestService testService;
+    private SubjectDao subjectDao;
 
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public void save() {
-        Person person = Person.builder().name("蔡徐坤").age(3).birthday("2020-03-03").build();
-        int insert = personDao.insert(person);
-        log.info("PersonDao: {}", insert);
-        int save = testService.save();
-        log.info("SubjectService: {}", save);
+    public int save() {
+        Subject subject = Subject.builder().name("篮球").createTime("2020-03-03").build();
+        int save = subjectDao.save(subject);
+//        int i = 1/0;
+        return save;
     }
 
     @Override
     public int delById(Long id) {
-        return personDao.delById(id);
+        return 0;
     }
 
     @Override
     public int myUpdate(Person person) {
-        return personDao.myUpdate(person);
+        return 0;
     }
+
+
 }
