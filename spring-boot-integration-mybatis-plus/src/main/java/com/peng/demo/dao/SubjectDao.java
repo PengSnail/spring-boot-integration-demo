@@ -1,5 +1,6 @@
 package com.peng.demo.dao;
 
+import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.peng.demo.bean.Subject;
 import org.apache.ibatis.annotations.Insert;
@@ -10,6 +11,7 @@ import org.springframework.stereotype.Repository;
  * @author PengG
  * @date 2020/10/29 11:05
  */
+@DS("db2")
 @Repository
 public interface SubjectDao extends BaseMapper<Subject> {
 
