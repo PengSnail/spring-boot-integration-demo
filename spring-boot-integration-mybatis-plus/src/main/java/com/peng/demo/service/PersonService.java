@@ -9,6 +9,8 @@ import com.peng.demo.bean.Person;
  */
 public interface PersonService extends IService<Person> {
 
+    void save();
+
     /**
      * 根据ID删除目标数据
      * @param id id

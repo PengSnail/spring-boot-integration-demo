@@ -16,7 +16,7 @@ import java.util.List;
  * @date 2020/10/28 14:09
  */
 @Slf4j
-public class PersonDemo extends SpringBootIntegrationMybatisPlusTest {
+public class Demo extends SpringBootIntegrationMybatisPlusTest {
 
     @Autowired
     private PersonService personService;
@@ -89,5 +89,13 @@ public class PersonDemo extends SpringBootIntegrationMybatisPlusTest {
         wrapper.eq("name", "Tom").and((i)-> i.ge("age", "18"));
         List<Person> list = personService.list(wrapper);
         log.info("条件查询【list】:{}", list);
+    }
+
+    /**
+     * 多数据源切换事务测试
+     */
+    @Test
+    public void test() {
+        personService.save();
     }
 }
