@@ -25,7 +25,7 @@ public class SubjectServiceImpl extends ServiceImpl<SubjectDao, Subject> impleme
      */
     @Override
     @Transactional(rollbackFor = Exception.class)
-    public int save() {
+    public int save1() {
         Subject subject = Subject.builder().name("篮球").createTime("2020-03-03").build();
         int save = subjectDao.save(subject);
 //        int i = 1/0;

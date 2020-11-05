@@ -24,15 +24,15 @@ public class TestServiceImpl implements TestService {
 
 
     @Autowired
-    private SubjectDao subjectDao;
+    private SubjectService subjectService;
 
     @Override
     @Transactional(rollbackFor = Exception.class)
     public int save() {
         Subject subject = Subject.builder().name("篮球").createTime("2020-03-03").build();
-        int save = subjectDao.save(subject);
+           subjectService.save(subject);
 //        int i = 1/0;
-        return save;
+        return 1;
     }
 
     @Override

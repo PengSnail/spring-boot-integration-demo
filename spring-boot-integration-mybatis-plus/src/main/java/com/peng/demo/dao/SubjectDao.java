@@ -11,7 +11,6 @@ import org.springframework.stereotype.Repository;
  * @author PengG
  * @date 2020/10/29 11:05
  */
-@DS("db2")
 @Repository
 public interface SubjectDao extends BaseMapper<Subject> {
 
