@@ -3,11 +3,9 @@ package com.peng.demo.service.impl;
 import com.baomidou.dynamic.datasource.annotation.DS;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.peng.demo.bean.Person;
-import com.peng.demo.bean.Subject;
 import com.peng.demo.dao.PersonDao;
 import com.peng.demo.service.PersonService;
 import com.peng.demo.service.SubjectService;
-import com.peng.demo.service.TestService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -26,8 +24,6 @@ public class PersonServiceImpl extends ServiceImpl<PersonDao, Person> implements
     private PersonDao personDao;
     @Autowired
     private SubjectService subjectService;
-    @Autowired
-    private TestService testService;
 
     @Override
     @Transactional(rollbackFor = Exception.class)
@@ -35,7 +31,7 @@ public class PersonServiceImpl extends ServiceImpl<PersonDao, Person> implements
         Person person = Person.builder().name("蔡徐坤").age(3).birthday("2020-03-03").build();
         int insert = personDao.insert(person);
         log.info("PersonDao: {}", insert);
-        int save = testService.save();
+        int save = subjectService.save();
         log.info("SubjectService: {}", save);
     }
 

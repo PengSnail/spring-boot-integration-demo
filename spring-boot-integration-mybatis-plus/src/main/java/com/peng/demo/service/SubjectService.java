@@ -10,5 +10,5 @@ import com.peng.demo.bean.Subject;
  */
 public interface SubjectService extends IService<Subject> {
 
-    int save1();
+    int save();
 }

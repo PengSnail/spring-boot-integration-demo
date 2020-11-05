@@ -24,8 +24,8 @@ public class SubjectServiceImpl extends ServiceImpl<SubjectDao, Subject> impleme
      * 事务传播行为需设置为：Propagation.REQUIRES_NEW，否则数据源将切换失败
      */
     @Override
-    @Transactional(rollbackFor = Exception.class)
-    public int save1() {
+    @Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRES_NEW)
+    public int save() {
         Subject subject = Subject.builder().name("篮球").createTime("2020-03-03").build();
         int save = subjectDao.save(subject);
 //        int i = 1/0;
